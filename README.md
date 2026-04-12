@@ -97,6 +97,56 @@ Core libraries used across notebooks and future scripts:
 
 ---
 
+## Workflows
+
+### 1. NLP Preprocessing Workflow
+
+```mermaid
+flowchart LR
+		A[Raw text paragraph] --> B[Sentence tokenization]
+		B --> C[Word tokenization]
+		C --> D[Lowercasing & basic cleanup]
+		D --> E[Stopword removal]
+		E --> F[Stemming / Lemmatization]
+		F --> G[POS tagging]
+		G --> H[Named Entity Recognition]
+```
+
+- Implemented across:
+	- [NLP/tokenization/tokenizations.ipynb](NLP/tokenization/tokenizations.ipynb)
+	- [NLP/tokenization/stopwords.ipynb](NLP/tokenization/stopwords.ipynb)
+	- [NLP/tokenization/stemming_lemmatization.ipynb](NLP/tokenization/stemming_lemmatization.ipynb)
+	- [NLP/tokenization/partsofspeech_tagging.ipynb](NLP/tokenization/partsofspeech_tagging.ipynb)
+	- [NLP/tokenization/name_entity_recognition.ipynb](NLP/tokenization/name_entity_recognition.ipynb)
+
+### 2. Word2Vec Experiment Workflow
+
+```mermaid
+flowchart LR
+		A[Load raw stories from data/] --> B[Clean & tokenize text]
+		B --> C[Train custom gensim Word2Vec model]
+		C --> D[Explore embeddings: similarity, analogies]
+		D --> E[Inspect "odd one out" and vector relationships]
+```
+
+- Implemented in:
+	- [april12/custom_word2vec.ipynb](april12/custom_word2vec.ipynb)
+	- [april_11/word2vec.ipynb](april_11/word2vec.ipynb)
+
+### 3. Notebook Overview (Concept Map)
+
+| Notebook | Focus | Key Concepts |
+|---------|-------|--------------|
+| [NLP/tokenization/tokenizations.ipynb](NLP/tokenization/tokenizations.ipynb) | Tokenization | Sentence/word tokenization, NLTK basics |
+| [NLP/tokenization/stopwords.ipynb](NLP/tokenization/stopwords.ipynb) | Stopwords | Stopword lists, filtering tokens |
+| [NLP/tokenization/stemming_lemmatization.ipynb](NLP/tokenization/stemming_lemmatization.ipynb) | Normalization | Stemming vs. lemmatization, trade-offs |
+| [NLP/tokenization/partsofspeech_tagging.ipynb](NLP/tokenization/partsofspeech_tagging.ipynb) | POS tagging | Tags for words, filtering content words |
+| [NLP/tokenization/name_entity_recognition.ipynb](NLP/tokenization/name_entity_recognition.ipynb) | NER | Named entities, chunking with ne_chunk |
+| [april12/custom_word2vec.ipynb](april12/custom_word2vec.ipynb) | Custom embeddings | Training Word2Vec, exploring similarity |
+| [april_11/word2vec.ipynb](april_11/word2vec.ipynb) | Embedding sandbox | Classic word2vec experiments |
+
+---
+
 ## Notes
 
 - Some older `gensim` APIs (e.g., `doesnt_match`) have changed or been removed in gensim 4; notebooks may include small helper functions to replicate legacy behavior.
