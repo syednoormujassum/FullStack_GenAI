@@ -1,0 +1,14 @@
+gensim
+scikit-learn
+huggingface
+sentence-transformers
+numpy
+pandas
+rank-bm25
+langchain
+langchain_community
+langchain-openai
+langchain_google_genai
+scipy
+ipykernel
+nltk
