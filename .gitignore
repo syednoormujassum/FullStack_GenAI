@@ -10,3 +10,4 @@ wheels/
 .venv
 # environment variables secrets
 .env
+notes.txt

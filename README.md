@@ -23,6 +23,8 @@ Full Stack Gen AI V2 is a learning and experimentation workspace for modern NLP 
 		- [tokenizations.ipynb](NLP/tokenization/tokenizations.ipynb) – basic tokenization techniques.
 		- [stopwords.ipynb](NLP/tokenization/stopwords.ipynb) – stopword removal experiments.
 		- [stemming_lemmatization.ipynb](NLP/tokenization/stemming_lemmatization.ipynb) – stemming vs. lemmatization.
+		- [partsofspeech_tagging.ipynb](NLP/tokenization/partsofspeech_tagging.ipynb) – POS tagging with NLTK (tags for words, filtering stopwords).
+		- [name_entity_recognition.ipynb](NLP/tokenization/name_entity_recognition.ipynb) – basic named entity recognition (NER) using NLTK’s `ne_chunk`.
 
 Supporting files:
 
