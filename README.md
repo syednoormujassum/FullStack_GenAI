@@ -188,7 +188,65 @@ flowchart TD
 - **Embedding tier**: Progress from classic Word2Vec to enhanced custom implementations.
 - **SOTA tier**: Integrate production-ready transformer embeddings and API-based models.
 
-### 5. Notebook Overview (Concept Map)
+### 5. Text to Vector: From Tokens to Dense Embeddings
+
+```mermaid
+flowchart LR
+	A["Raw Text"] -->|Preprocess| B["Clean Tokens"]
+	B -->|Shallow embeddings| C["Word2Vec<br/>Skip-gram/CBOW"]
+	B -->|Deep embeddings| D["Transformers<br/>Attention layers"]
+	C --> E["Sparse context<br/>~300 dims"]
+	D --> F["Rich semantics<br/>384-1536 dims"]
+	E --> G["Vector Space"]
+	F --> G
+	G -->|Query| H["Similarity Search<br/>Clustering<br/>Retrieval"]
+```
+
+- Illustrates the progression from raw text through preprocessing to embeddings (classical vs. modern).
+- Shows why transformer embeddings capture richer semantic information.
+
+### 6. Tech Stack Integration
+
+```mermaid
+flowchart LR
+	subgraph data["Data Layer"]
+		D1["txt files<br/>data/"]
+	end
+	subgraph process["Processing Layer"]
+		P1["NLTK<br/>tokenization,<br/>POS, NER"]
+		P2["scikit-learn<br/>vectors,<br/>metrics"]
+	end
+	subgraph embed["Embedding Layer"]
+		E1["gensim<br/>Word2Vec"]
+		E2["sentence-transformers<br/>all-MiniLM"]
+		E3["OpenAI<br/>API"]
+		E4["Google Gemini<br/>API"]
+	end
+	subgraph app["Application Layer"]
+		A1["Similarity<br/>search"]
+		A2["Semantic<br/>clustering"]
+		A3["RAG<br/>systems"]
+		A4["Classification"]
+	end
+	D1 --> P1
+	P1 --> P2
+	P2 --> E1
+	P2 --> E2
+	E2 --> E3
+	E3 --> E4
+	E1 --> A1
+	E2 --> A1
+	E3 --> A3
+	E4 --> A3
+	E1 --> A2
+	E2 --> A2
+	E2 --> A4
+```
+
+- Shows how different libraries and APIs integrate across your tech stack.
+- Demonstrates data flow from collection through processing to application.
+
+### 7. Notebook Overview (Concept Map)
 
 | Notebook | Focus | Key Concepts |
 |---------|-------|--------------|
