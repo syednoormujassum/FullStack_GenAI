@@ -137,9 +137,58 @@ flowchart LR
 
 - Implemented in:
 	- [april12/custom_word2vec.ipynb](april12/custom_word2vec.ipynb)
+	- [april12/custom_word2vec_V2.ipynb](april12/custom_word2vec_V2.ipynb) (enhanced version)
 	- [april_11/word2vec.ipynb](april_11/word2vec.ipynb)
 
-### 3. Notebook Overview (Concept Map)
+### 3. SOTA Embedding Models Workflow
+
+```mermaid
+flowchart LR
+		A[Input text / corpus] --> B{Choose embedding source}
+		B -->|Open source| C[sentence-transformers<br/>all-MiniLM-L6-v2]
+		B -->|Proprietary| D[OpenAI API<br/>text-embedding-3]
+		B -->|Generative| E[Google Gemini<br/>via LangChain]
+		C --> F[Generate dense vectors<br/>384-dim embeddings]
+		D --> F
+		E --> F
+		F --> G[Semantic similarity,<br/>clustering, retrieval]
+		G --> H[Downstream tasks:<br/>RAG, classification, etc.]
+```
+
+- Implemented in:
+	- [april18/SOTA.ipynb](april18/SOTA.ipynb)
+
+### 4. Complete Learning Journey
+
+```mermaid
+flowchart TD
+		subgraph nlp["NLP Foundations"]
+			T1["Tokenization<br/>(tokenizations.ipynb)"]
+			T2["Stopwords<br/>(stopwords.ipynb)"]
+			T3["Stemming/Lemmatization<br/>(stemming_lemmatization.ipynb)"]
+			T4["POS Tagging<br/>(partsofspeech_tagging.ipynb)"]
+			T5["NER<br/>(name_entity_recognition.ipynb)"]
+			T1 --> T2 --> T3 --> T4 --> T5
+		end
+		subgraph embed["Embedding Models"]
+			E1["Word2Vec Basics<br/>(word2vec.ipynb)"]
+			E2["Custom Word2Vec<br/>(custom_word2vec.ipynb)"]
+			E3["Word2Vec V2<br/>(custom_word2vec_V2.ipynb)"]
+			E1 --> E2 --> E3
+		end
+		subgraph sota["State-of-the-Art"]
+			S1["SOTA Models<br/>(SOTA.ipynb)<br/>sentence-transformers<br/>OpenAI + Gemini"]
+		end
+		T5 -->|Preprocessing| E1
+		E3 -->|Classic approach| S1
+		S1 -->|Production-ready| F["Downstream applications:<br/>semantic search, RAG,<br/>clustering, classification"]
+```
+
+- **Foundation tier**: Master core NLP preprocessing with NLTK.
+- **Embedding tier**: Progress from classic Word2Vec to enhanced custom implementations.
+- **SOTA tier**: Integrate production-ready transformer embeddings and API-based models.
+
+### 5. Notebook Overview (Concept Map)
 
 | Notebook | Focus | Key Concepts |
 |---------|-------|--------------|
