@@ -3,7 +3,9 @@
 Full Stack Gen AI V2 is a learning and experimentation workspace for modern NLP and GenAI techniques. It currently focuses on:
 
 - Classic word embeddings (custom word2vec)
+- State-of-the-Art (SOTA) transformer-based embeddings (sentence-transformers, OpenAI, Google Gemini)
 - Core NLP preprocessing (tokenization, stopwords, stemming, lemmatization)
+- Part-of-speech tagging and named entity recognition
 - Playing with small text corpora to understand representation learning
 
 ---
@@ -13,11 +15,15 @@ Full Stack Gen AI V2 is a learning and experimentation workspace for modern NLP 
 - [main.py](main.py) – minimal entry point (prints a greeting); reserved for future app logic.
 - [april12](april12)
 	- [custom_word2vec.ipynb](april12/custom_word2vec.ipynb) – trains and explores a custom `gensim` word2vec model on small story texts from `data/`.
+	- [custom_word2vec_V2.ipynb](april12/custom_word2vec_V2.ipynb) – enhanced version training Word2Vec on AI-focused corpus with deeper semantic exploration.
 	- [data](april12/data)
 		- [story1.txt](april12/data/story1.txt) – sample text corpus 1.
 		- [story2.txt](april12/data/story2.txt) – sample text corpus 2.
+		- [ai.txt](april12/data/ai.txt) – AI-focused text corpus for V2 training.
 - [april_11](april_11)
 	- [word2vec.ipynb](april_11/word2vec.ipynb) – earlier word2vec experimentation (embeddings, similarity, analogies, etc.).
+- [april18](april18)
+	- [SOTA.ipynb](april18/SOTA.ipynb) – explores state-of-the-art embedding models via sentence-transformers (`all-MiniLM-L6-v2`), OpenAI SDK, and Google Gemini via LangChain.
 - [NLP](NLP)
 	- [tokenization](NLP/tokenization)
 		- [tokenizations.ipynb](NLP/tokenization/tokenizations.ipynb) – basic tokenization techniques.
@@ -143,11 +149,15 @@ flowchart LR
 | [NLP/tokenization/partsofspeech_tagging.ipynb](NLP/tokenization/partsofspeech_tagging.ipynb) | POS tagging | Tags for words, filtering content words |
 | [NLP/tokenization/name_entity_recognition.ipynb](NLP/tokenization/name_entity_recognition.ipynb) | NER | Named entities, chunking with ne_chunk |
 | [april12/custom_word2vec.ipynb](april12/custom_word2vec.ipynb) | Custom embeddings | Training Word2Vec, exploring similarity |
+| [april12/custom_word2vec_V2.ipynb](april12/custom_word2vec_V2.ipynb) | Enhanced Word2Vec | Skip-gram, 300-dim vectors, semantic relationships |
 | [april_11/word2vec.ipynb](april_11/word2vec.ipynb) | Embedding sandbox | Classic word2vec experiments |
+| [april18/SOTA.ipynb](april18/SOTA.ipynb) | SOTA embeddings | Transformer-based embeddings, HuggingFace, LangChain integration |
 
 ---
 
 ## Notes
 
 - Some older `gensim` APIs (e.g., `doesnt_match`) have changed or been removed in gensim 4; notebooks may include small helper functions to replicate legacy behavior.
+- SOTA notebooks leverage `sentence-transformers` for efficient transformer embeddings; also demonstrate API integration with OpenAI and Google Gemini via LangChain.
+- Type hints and Pylance integration: Use `numpy-stubs` for better IDE autocomplete on NumPy arrays (e.g., `.shape`, `.dtype`).
 - This repository is intended for experimentation and learning; breaking changes to notebooks are possible as you iterate.

@@ -13,3 +13,5 @@ scipy
 ipykernel
 nltk
 svgling
+pyyaml
+mteb
